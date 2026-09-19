@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    # Construir usando el Dockerfile del directorio actual (.)
+    build: .
+    container_name: flask_login_backend
+
+    # Mapeo de puertos: Puerto PC : Puerto Contenedor
+    ports:
+      - "5000:5000"
+
+    # Volúmenes: Sincroniza tu carpeta actual con /app en el contenedor.
+    # Esto permite que si cambias el código en tu PC, se actualice en Docker
+    # sin tener que reconstruir la imagen (gracias al debug=True de Flask).
+    volumes:
+      - .:/app
+
+    # Variables de entorno que usa Flask para firmar los tokens JWT
+    # y para permitir la creación de usuarios administradores
+    environment:
+      - SECRET_KEY=Angelricardotellezgironcastro0306
+      - JWT_EXP_MINUTES=60
+      - ADMIN_CREATION_KEY=miClaveAdminSecreta2026

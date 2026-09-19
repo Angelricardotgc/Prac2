@@ -1,0 +1,6 @@
+CURLS.-
+#1:
+curl -X POST http://localhost:5000/register -H "Content-Type: application/json" -d "{\"username\":\"android_dev\",\"password\":\"mi_password_secreto\"}"
+
+#2:
+curl -X POST http://localhost:5000/login -H "Content-Type: application/json" -d "{\"username\":\"android_dev\",\"password\":\"mi_password_secreto\"}"
